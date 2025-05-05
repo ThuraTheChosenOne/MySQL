@@ -1,0 +1,19 @@
+=>SUBSTRING & SUBSTR(start 1)
+
+=>Syntax SUBSTRING()
+
+SELECT SUBSTRING('string',strat,end);
+
+=>Stntax SUBSTR()
+
+SELECT SUBSTR('string',strat,end);
+
+------------------------------------------------------------------
+=>EXERCISE
+
+no result cuz mysql start1
+SELECT SUBSTRING('hello World',1,4);//hell
+SELECT SUBSTRING('hello World',2,4);//ello
+
+SELECT SUBSTRING('hello I\'m Mr.Adolf,1,10);//hello I'm 
+13JUNEB

@@ -1,0 +1,110 @@
+=>Primary Key
+
+METHOD 1 = Syntax
+CREATE TABLE IF NOT EXISTS worker(
+  id INT NOT NULL PRIMART KEY,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50),
+  age INT
+);
+
+
+METHOD 2 = Syntax
+CREATE TABLE IF NOT EXISTS worker(
+  id INT NOT NULL PRIMART KEY,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50),
+  age INT,
+  PRIMARY KEY(id)
+);
+
+--------------------------------------------------------------
+
+=>without PRIMARY KEY
+
+CREATE TABLE IF NOT EXISTS workers(
+  id INT,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50),
+  age INT
+);
+DESC workers;# show primary key
+
+SHOW INDEX FROM workers;
+
+INSERT INTO workers(id,firstname,lastname,age)
+VALUES (1,'zaw','naing',20),
+       (1,'kyaw','naing',19);
+
+SELECT * FROM workers;
+
+
+
+=>with PRIMARY KEY
+
+CREATE TABLE IF NOT EXISTS developers(
+  id INT NOT NULL PRIMARY KEY,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50),
+  age INT
+);
+DESC developers;# show primary key
+
+SHOW INDEX FROM developers;
+
+INSERT INTO developers(id,firstname,lastname,age)
+VALUES (1,'zaw','naing',20),
+       (2,'kyaw','naing',19);
+
+SELECT * FROM developers;
+
+--------------------------------------------------------------
+
+CREATE TABLE IF NOT EXISTS engineers(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  gender VARCHAR(10) NOT NULL DEFAULT 'male'
+);
+
+
+CREATE TABLE IF NOT EXISTS engineers(
+  id INT NOT NULL AUTO_INCREMENT ,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  gender VARCHAR(10) NOT NULL DEFAULT 'male',
+  PRIMARY KEY(id)
+);
+
+
+CREATE TABLE IF NOT EXISTS engineers(
+  id INT NOT NULL AUTO_INCREMENT ,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  gender VARCHAR(10) NOT NULL DEFAULT 'male',
+  add PRIMARY KEY(id)
+);
+
+INSERT INDEX enginreers(firstname,lastname,age)
+VALUES ('nay','zin',20),;
+
+INSERT INDEX enginreers(firstname,lastname,age)
+VALUES ('nay','zin',20),
+      ('aung','kyaw',28);
+
+INSERT INDEX enginreers(id,firstname,lastname,age)
+VALUES (10,'kyaw','zin',20);
+
+INSERT INDEX enginreers(firstname,lastname,age)
+VALUES ('min','zin',20),
+        ('nay','myo',89);
+
+
+INSERT INDEX enginreers(id,firstname,lastname,age)
+VALUES (10,'kaung','zin',20);#error because of id
+
+SELECT * FROM engineers; 
+      

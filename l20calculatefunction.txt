@@ -1,0 +1,110 @@
+=>COUNT(),SUM(),AVG(),MIN(),MAX() = Aggregat function
+
+=>Syntax = COUNT()
+
+SELECT col1,col2 FROM tablename 
+WHERE condition
+
+=>Syntax = SUM()
+
+SELECT col1,col2 FROM tablename 
+WHERE condition
+
+=>Syntax = AVG()
+
+SELECT col1,col2 FROM tablename 
+WHERE condition
+
+=>Syntax = MIN()
+
+SELECT col1,col2 FROM tablename 
+WHERE condition
+
+
+=>Syntax = MAX()
+
+SELECT col1,col2 FROM tablename 
+WHERE condition
+--------------------------------------------
+CREATE TABLE IF NOT EXISTS customers(
+  id INT NOT NULL AUTO_INCREMENT,
+  firstname VARCHAR(50) NOT NULL,
+  lastname VARCHAR(50) NOT NULL,
+  age INT NOT NULL,
+  gender VARCHAR(10)NOT NULL,
+  city VARCHAR(30)NOT NULL,
+  amount DECIMAL(8,2) DEFAULT 0,
+  PRIMARY KEY(id)
+);
+
+DESC customers;
+SHOW INDEX FROM sutomers;
+SHOW CREATE TABLE customers;
+
+INSERT INTO customers(firstname,lastname,age,gender,city,amount)
+VALUES ('Thura','Naing',20,'Male','Mandalay',50000),
+  ('Kyaw','Ko',23,'Male','Yangon',30000),
+  ('Myint','Htun',26,'Male','Bago',20000),
+  ('Khaing','Zar',19,'Female','Mandalay',38000),
+  ('Khant','Naing',12,'Male','Yangon',50000),
+  ('Hsu','Hlaing',20,'Female','Mandalay',50000),
+  ('Ham','Sandar',20,'Female','Mandalay',50000);
+
+
+SELECT * FROM customers;
+--------------------------------------------
+=>COUNT() //to count row
+
+SELECT * FROM customers
+WHERE amount > 10000;
+
+SELECT COUNT(amount) FROM customers
+WHERE amount > 10000;
+
+SELECT * FROM customers
+WHERE firstname ="Thura";
+--------------------------------------------
+=>SUM()
+
+
+SELECT * FROM customers
+WHERE amount > 10000;
+
+SELECT SUM(amount) AS total FROM customers
+WHERE amount > 38000;
+
+SELECT SUM(amount)AS total FROM customers
+WHERE city ="Yangon";
+
+--------------------------------------------
+=>AVG()
+
+average = sum/count
+
+
+SELECT * FROM customers
+WHERE amount > 10000;
+
+SELECT AVG(amount) AS total FROM customers
+WHERE amount > 38000;
+
+SELECT AVG(amount)AS total FROM customers
+WHERE city ="Yangon";
+
+--------------------------------------------
+=>MIN()
+//38000
+SELECT MIN(amount) FROM customers
+WHERE city="Mandalay";
+
+
+SELECT * FROM sutomers
+WHERE amount = (SELECT MIN(amount) FROM customers
+WHERE city="Mandalay");
+
+
+//error
+SELECT firstnmae,MIN(amount) FROM customers
+WHERE city="Mandalay";
+
+18JUNE

@@ -1,0 +1,78 @@
+=>Inserrt single Data
+
+METHOD1 = syntax
+
+INSERT INTO tablename (column1,column2,column3,...)
+VALUE (value1,value2,value3...);
+
+METHOD2 = syntax
+
+INSERT INTO tablename
+VALUE(value1,value2,value3,...);
+
+=>Inserrt multi Data
+
+METHOD1 = syntax
+
+INSERT INTO tablename (column1,column2,column3,...)
+VALUES (value1,value2,value3...),
+(value1,value2,value3...),
+(value1,value2,value3...);
+
+METHOD2 = syntax
+
+INSERT INTO tablename
+VALUES (value1,value2,value3,...),
+(value1,value2,value3...),
+(value1,value2,value3...);
+--------------------------------------------------------------
+
+
+=>Exercise
+CREATE TABLE IF NOT EXISTS persons(
+  id INT,
+  firstname VARCHAR(20),
+  lastname VARCHAR(20),
+  city VARCHAR(20),
+  address VARCHAR(200)
+);
+
+DESC persons;
+
+INSERT INTO persons (id,firstname,lastname,city,address)
+VALUE (1,'Aung','Kyaw','mandalay','no.9,myitter st');
+
+
+INSERT INTO persons (id,firstname,lastname,city,address)
+VALUE (1,'hlaing','Kyaw','yangon','no.9,myitter st');
+
+INSERT INTO persons (id,firstname,lastname,address,city)
+VALUE (3,'su','su','yangon','no.9,myitter st');
+
+INSERT INTO persons (id,firstname,lastname,address,city)
+VALUE (4,'May','khant','no.9,myitter st','yangon');
+
+INSERT INTO persons 
+VALUE (5,'moe','nyo','LinnKhae','no.9augn st');
+INSERT INTO persons 
+VALUE (6,'thuta','aung','myplace','no.9augn st');
+   
+SELECT * FROM persons;
+
+INSERT INTO persons (id,firstname,lastname,city,address)
+VALUES (7,'hlaing','Hlaing','yangon','no.9,myitter st'),
+    (8,'Thura','Hlaing','bago','no.9,myitter st'),
+    (9,'naign','moe','taungyi','no.9,myitter st'),
+    (10,'aung','Hlaing','maymyo','no.9,myitter st');
+
+
+INSERT INTO persons
+VALUES (11,'aung','myit','yangon','no.9,myitter st'),
+    (12,'nyunt','htun','bago','no.9,myitter st'),
+    (13,'min','sakka','taungyi','no.9,myitter st'),
+    (14,'pyae','Hlaing','maymyo','no.9,myitter st');
+
+
+
+
+SELECT * FROM persons;

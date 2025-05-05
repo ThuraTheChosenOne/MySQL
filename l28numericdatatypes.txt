@@ -1,0 +1,29 @@
+=Numeric Data Types
+
+Data type                            Description
+BIT(size)                            A bit-value type , from 1 to 64 ,default value is 1
+BOOL                                 Zero is considered as false,Non-zero values are considered as true 
+BOOLEAN                              Zero is considered as false,Non-zero values are considered as true 
+
+INYINT(size)                         A very small integer,Signed range -128 to 127,Unsigned 0 to 255
+SMALLINT(size)                       A small integer,Signed range -3277 to 3276,Unsigned range 0 to 6555(6kb)
+MEDIUMINT(size)                      A small integer,Signed range -8388608 to 8388607,Unsigned range 0 to 16777215(16mb)
+INT                                  A small integer,Signed range -2147483648 to 2147483647,Unsigned range 0 to 4294967295(4gb)                            
+INTEGER                              A small integer,Signed range -2147483648 to 2147483647,Unsigned range 0 to 4294967295(4gb)                             
+BITINT()                              
+
+DECIMAL(size,d)                      fixed-point number,default value for d is 0
+                                     eg(999.99) is digit and 2 decimal DECIMAL(5,2)
+
+DEC(size,d)                          fixed-point number,default value for d is 0
+FLOAT(size,p)                        A floating point number( approximate Value)
+FLOAT(p)                             A floating point number( approximate Value,p is optional,p is from 0 to 24)
+DOUBLE(size,p)                       A floating point number( approximate Value,p is optional,p is from 25 to 53)
+
+
+NOTE  =>DECIMAL is for finance(such as money)
+        FLOAT & DOUBLE dor science project
+
+
+        
+---------------------------------------------------------------------------------

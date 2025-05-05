@@ -1,0 +1,76 @@
+=>WHERE clause
+
+=>Syntax
+
+SELECT col1,col2,....FROM tablename 
+WHERE condition;
+
+-------------------------------------------------------
+
+SELECT * FROM persons;
+
+SELECT * FROM persons
+WHERE city="Mandalay";
+
+SELECT * FROM persons
+WHERE city="Yangon";
+
+SELECT * FROM persons
+WHERE city="Bago";
+
+SELECT * FROM persons
+WHERE city="Taungyi";
+
+SELECT firstname,lastname FROM persons
+WHERE city="mandalay";
+
+
+SELECT firstname,lastname FROM persons
+WHERE city LIKE "mandalay";
+
+*no action
+SELECT * FORM persons
+WHERE lastname LIKE="tun";
+
+------------------------------------------------------
+
+=! or <> / NOT
+
+SELECT * FROM persons
+WHERE city != "mandalay";
+
+SELECT * FROM persons
+WHERE city <> "mandalay";
+
+SELECT * FROM persons
+WHERE NOT city = "mandalay";
+
+SELECT * FROM persons
+WHERE NOT city LIKE "mandalay";
+
+SELECT * FROM persons
+WHERE  city NOT LIKE "mandalay";
+
+------------------------------------------------------
+
+< =< > >=
+SELECT firstname,lastname,age FROM engineers;
+WHERE age < 20;
+
+------------------------------------------------------
+
+=>BETWEEN with AND
+
+SELECT firstname,lastname,age,gender FROM engineers
+WHERE age BETWEEEN 18 AND 30;
+
+SELECT firstname,lastname,age,gender FROM engineers
+WHERE age BETWEEEN 18 AND 30 gender AND = "male";
+
+=>NOT BETWEEN with AND
+
+SELECT firstname,lastname,age,gender FROM engineers
+WHERE age NOT BETWEEEN 18 AND 30;
+
+SELECT firstname,lastname,age,gender FROM engineers
+WHERE age BETWEEEN 18 AND 30 gender AND = "male";

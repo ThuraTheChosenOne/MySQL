@@ -1,0 +1,33 @@
+=>CONCAT & CONCAT_WS
+=>CONCAT Syntax 
+
+SELECT CONCAT(col1,col2,...)FROM tablename;
+
+=>CONCAT_WS Syntax 
+
+SELECT CONCAT_WS(delimiter,col1,col2,...)FROM tablename;
+------------------------------------------------
+=>CONCAT
+SELECT CONCAT('hello','world');
+SELECT CONCAT('hello',' ','world');
+
+SELECT * FROM suppliers;
+SELECT firstname,lastname FROM suppliers;
+SELECT CONCAT(firstname,lastname) FROM suppliers;
+SELECT CONCAT(firstname,' ',lastname)AS fullname FROM suppliers;
+
+
+SELECT CONCAT(firstname,' ','lastname')AS "Full Name",
+phone AS 'mobile phone' FROM suppliers;
+-------------------------------------------------
+
+=>CONCAT_WS
+
+SELECT CONCAT_WS(' ','HELLO','WORLD');
+SELECT CONCAT_WS('...','HELLO','WORLD','WE ARE WELCOME');
+
+SELECT CONCAT_WS('-',firstname,lastname)AS "Full Name",
+phone AS 'mobile phone'
+FROM suppliers;
+
+-----------------------------------------

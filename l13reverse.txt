@@ -1,0 +1,16 @@
+=>REVERSE
+
+Syntax 
+SELEC REVERSE('hello world');
+
+---------------------------------------------------
+
+SELECT * FROM persons;
+
+SELECT REVERSE(firstname)FROM persons;
+
+SELECT CONCAT('woof',' = ',REVERSE('woof'));
+SELECT CONCAT(firstname,' = ',REVERSE(firstname))FROM persons;
+
+
+--------------------------------------------------

@@ -1,0 +1,247 @@
+=>unique key
+
+method 1 = Syntax single
+
+CREATE TABLE IF NOT EXISTS tablename(
+  column1 datatype UNIQUE,
+    column1 datatype,
+      column1 datatype,
+    ............
+);
+
+
+method 2 = Syntax single
+
+ALTER TABLE tablename 
+ADD UNIQUE (columnname);
+
+
+method 3 = Syntax multi
+=>without keyname set
+ALTER TABLE tablename 
+ADD CONSTRAINT uc_col1_col2 UNIQUE (column1,column2);
+
+
+=>with keyname set
+ALTER TABLE tablename 
+ADD CONSTRAINT uc_col1_col2 UNIQUE (column1,column2);
+
+
+
+-------------------------------------------------------
+
+=>WITHOUT UNIQUE(method 1 single)
+
+CREATE TABLE IF NOT EXISTS vpns(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  score INT NOT NULL
+);
+
+
+DESC vpns;
+SHOW CREATE TABLE vpns;
+SHOW INDEX FROM vpns;
+
+INSERT INTO  vpns(name,score)
+VALUE ('1111',7);
+
+
+INSERT INTO  vpns(name,score)
+VALUE ('express',9),
+      ('pia',4),
+      ('1111',6);
+
+INSERT INTO  vpns(name,score)
+VALUE ('pia',4);
+
+SELECT *FROM vpns;
+-------------------------------------------------------
+=>WITH UNIQUE
+
+
+CREATE TABLE IF NOT EXISTS proxyvpns(
+  id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL UNIQUE,
+  score INT NOT NULL
+);
+
+
+DESC proxyvpns;
+SHOW CREATE TABLE proxyvpns;
+SHOW INDEX FROM proxyvpns;
+
+INSERT INTO  proxyvpns(name,score)
+VALUE ('1111',7);
+
+
+INSERT INTO  proxyvpns(name,score)
+VALUE ('express',9),
+      ('pia',4),
+      ('supervpn',6);
+
+INSERT INTO  proxyvpns(name,score)
+VALUE ('pia',4);
+
+SELECT *FROM proxyvpns;
+
+
+-------------------------------------------------------
+
+email
+nrc
+phonenumber
+passport
+studentid
+invoiceid
+cardid
+license
+
+-------------------------------------------------------
+
+=>WITHOUT UNIQUE(method 2 signle)
+
+CREATE TABLE IF NOT EXISTS users(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(50) NOT NULL,
+    LASTNAME VARCHAR(50) NOT NULL,
+    email VARCHAR(50)NOT NULL,
+    phone VARCHAR(50)NOT NULL,
+    password VARCHAR(255) NOT NULL
+
+);
+
+DESC users;
+SHOW CREATE TABLE users;
+SHOW INDEX FROM users;
+
+ALTER TABLE users
+ADD UNIQUE(email);
+
+DESC users;
+SHOW CREATE TABLE users;
+SHOW INDEX FROM users;
+
+
+INSERT INTO users(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','aung67@gmail.com','09234234','213423'),
+('myint','naing','myintt67@gmail.com','092343','213423'),
+('khant','naing','khant67@gmail.com','09657','213423');
+
+*error
+INSERT INTO users(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','aung67@gmail.com','09234234','213423');
+
+*error
+INSERT INTO users(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','aung67@gmail.com','0988999','213423');
+
+*error
+INSERT INTO users(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','AUng67@gmail.com','09234234','213423');
+
+//NOTE UNIQUE KEY MUST BE UNIQUE INCLUDING UPPERCASE LOWERCASE
+SELECT * FROM users;
+
+
+-------------------------------------------------------
+WITHOUT keyname set UNIQUE( Method 3 multi)
+
+
+CREATE TABLE IF NOT EXISTS suppliers(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(50) NOT NULL,
+    LASTNAME VARCHAR(50) NOT NULL,
+    email VARCHAR(50)NOT NULL,
+    phone VARCHAR(50)NOT NULL,
+    password VARCHAR(255) NOT NULL
+
+);
+
+DESC suppliers;
+SHOW CREATE TABLE suppliers;
+SHOW INDEX FROM suppliers;
+
+
+
+ALTER TABLE suppliers
+ADD UNIQUE(email,phone);
+
+DESC suppliers;
+SHOW CREATE TABLE suppliers;
+SHOW INDEX FROM suppliers;
+
+
+ALTER TABLE tablename;
+ADD UNIQUE(column1,column2);
+
+DROP TABLE IF  EXISTS suppliers;
+
+==WITH keyname set UNIQUE( Method 3 multi)
+
+
+CREATE TABLE IF NOT EXISTS suppliers(
+    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    firstname VARCHAR(50) NOT NULL,
+    LASTNAME VARCHAR(50) NOT NULL,
+    email VARCHAR(50)NOT NULL,
+    phone VARCHAR(50)NOT NULL,
+    password VARCHAR(255) NOT NULL
+
+);
+
+DESC suppliers;
+SHOW CREATE TABLE suppliers;
+SHOW INDEX FROM suppliers;
+
+
+
+ALTER TABLE suppliers
+ADD CONSTRAINT uc_email_phone UNIQUE(email,phone);
+
+DESC suppliers;
+SHOW CREATE TABLE suppliers;
+SHOW INDEX FROM suppliers;
+
+
+----------------------------------------------------------
+
+INSERT INTO suppliers(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','aung67@gmail.com','09234234','213423'),
+('myint','naing','myintt67@gmail.com','092343','213423'),
+('khant','naing','khant67@gmail.com','09657','213423');
+
+*error
+INSERT INTO suppliers(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','aung67@gmail.com','09234234','213423');
+
+*correct
+INSERT INTO suppliers(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','aung67@gmail.com','0988999','213423');
+
+
+INSERT INTO suppliers(firstname,lastname,email,phone,password)
+VALUES ('thu','zar','thuzar@gmail.com','09234544','2344');
+
+*error
+INSERT INTO users(firstname,lastname,email,phone,password)
+VALUES ('aung','naing','AUng67@gmail.com','0988999','213423');
+
+//NOTE UNIQUE KEY MUST BE UNIQUE INCLUDING UPPERCASE LOWERCASE
+SELECT * FROM users;
+
+------------------------------------------------------
++>DROP UNIQUE KEY
+
+
+DESC suppliers;
+SHOW CREATE TABLE suppliers;
+SHOW INDEX FROM suppliers;
+
+ALTER TABLE suppliers DROP INDEX uc_email_phone;
+DESC suppliers;
+SHOW CREATE TABLE suppliers;
+SHOW INDEX FROM suppliers;
+
+-------------------------------------------------------
+

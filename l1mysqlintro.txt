@@ -1,0 +1,96 @@
+=>MySql(Structure Query Language)
+=>Comments
+
+Single line Comments
+#comments here
+--comments here
+/*commentshere*/
+
+Multi line Comments
+/*
+  comments here
+*/
+
+  -------------------------------------
+  Arithematic Operators
+
+  +(Add)
+  -(Subtraction)
+  *(Multiply)
+  /(Diide)
+  %(Modulus)
+
+  ----------------------------------------
+  Comparison Operators
+
+  = Define
+  >
+  <
+  >=
+  <=
+  != or <> Not Equal
+  BETWEEN Between as a certain range
+  LIKE search for pattern
+  IN To spcify multiple possible vaues for a columns
+
+  ------------------------------------------
+
+  ==>Exercise Addition Operators
+SELECT 10 + 2; #12
+SELECT '10' + 2; #12
+SELECT "10" + 2; #12
+SELECT "10" + '2';#12
+SELECT 10 + 20, 20 + 30;#30,50
+SELECT '100' + "200", "200" + 300;#300,500
+
+
+  ==>Exercise Sub Operators
+SELECT 10 - 2; #8
+SELECT 20-10 ,30-15; #10 15
+SELECT '1000' - '500' ,500 - '600'; #500 -100
+
+
+  ==>Exercise Multiply Operators
+SELECT 10 * 2; #8
+SELECT 2*10 ,30*15; #20 450
+SELECT '20' * '30' ,500 * '600'; #600 -300000
+
+  ==>Exercise Division Operators
+SELECT 10 /  2; #8
+SELECT 2/10 ,30/15; #20 450
+SELECT '20' / '30' ,500 / '600'; #600 -300000
+SELECT 100 /  0; #NULL
+
+SELECT 10 DIV  2; #8
+SELECT 2 DIV 10 ,30 DIV 15; #20 450
+SELECT '20' DIV '30' ,500 DIV '600'; #600 -300000
+SELECT 100 DIV  0; #NULL
+
+ ==>Exercise Modulus Operators
+SELECT 10 %  2; #8
+SELECT 2 % 10 ,30 % 15; #20 450
+SELECT '20'  %  '30' ,500  %  '600'; #600 -300000
+SELECT 100 /  0; #NULL
+
+SELECT 10 MOD  2; #8
+SELECT 2 MOD 10 ,30 MOD 15; #20 450
+SELECT '20' MOD '30' ,500 MOD '600'; #600 -300000
+SELECT 100 MOD  0; #NULL
+
+-----------------------
+=CRUD
+Create / Read / Update / Delete
+
+CREATE DATABASE = create a new DATABASE
+CREATE TABLE    =create a new table
+
+ALTER DATABASE = modified a datebase
+ALTER TABLE = modified a table
+
+DROP DATABASE = delete a database
+DROP TABLE = delete a table
+
+INSERT INTO + insert new data into database table
+SELECT = Extract data from database table
+UPDATE = update data in a database table
+DELETE = delete datat in a database table
